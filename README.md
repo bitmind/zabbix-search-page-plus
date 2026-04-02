@@ -1,6 +1,10 @@
 # Zabbix module Search Page plus
 
+
 A lightweight frontend module for **Zabbix 7.0** designed to improve the User Experience (UX) on the global search results page. This module put "Dashboards" links in the first column and adds a clean, monochromatic icon to highlight the Dashboard link.
+
+<img  alt="screen1126" src="screen.png" />
+
 
 ## 🚀 Features
 
