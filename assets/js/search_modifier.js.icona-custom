@@ -1,0 +1,35 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('action') === 'search') {
+        
+        // Selezioniamo le celle della tabella risultati
+        const rows = document.querySelectorAll('.list-table tr');
+
+        rows.forEach(row => {
+            const latestLink = row.querySelector('a[href*="action=latest.view"]');
+            const dashLink = row.querySelector('a[href*="action=host.dashboard.view"]');
+
+            if (latestLink && dashLink) {
+                // Troviamo i contenitori (solitamente i <td>)
+                const cellLatest = latestLink.closest('td');
+                const cellDash = dashLink.closest('td');
+
+                if (cellLatest && cellDash) {
+                    // Aggiungiamo l'icona prima del testo del link Dashboard
+                    if (!dashLink.querySelector('.custom-icon')) {
+                        const icon = document.createElement('span');
+                        icon.className = 'custom-icon';
+                        icon.innerHTML = '📈 '; // Icona monocromatica
+                        icon.style.marginRight = '5px';
+                        dashLink.prepend(icon);
+                    }
+
+                    // Scambiamo il contenuto delle due celle
+                    const tempContent = cellLatest.innerHTML;
+                    cellLatest.innerHTML = cellDash.innerHTML;
+                    cellDash.innerHTML = tempContent;
+                }
+            }
+        });
+    }
+});
