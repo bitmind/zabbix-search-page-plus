@@ -3,7 +3,7 @@
 
 A lightweight frontend module for **Zabbix 7.0** designed to improve the User Experience (UX) on the global search results page. This module put "Dashboards" links in the first column and adds a clean, monochromatic icon to highlight the Dashboard link.
 
-<img  alt="screen1126" src="screen.png" />
+<img  alt="screen1126" src="doc/screen.png" />
 
 
 ## 🚀 Features
@@ -22,3 +22,19 @@ swap_links/
 └── assets/
     └── js/
         └── search_results.js # DOM manipulation logic for search results
+```
+
+## Monitoring > Host visualization
+Altering columns order via module is harder here. If you want to emphasize "Dashboard" link, use the provided patch:
+
+```text
+cd /usr/share/zabbix/app/partials
+patch monitoring.host.view.html.php < monitoring.host.view.html.php.PATCH
+```
+
+### Default screen:
+<img  alt="monitoring-host-default" src="doc/monitoring-host-default.png" />
+
+### After patching:
+<img  alt="monitoring-host" src="doc/monitoring-host.png" />
+
