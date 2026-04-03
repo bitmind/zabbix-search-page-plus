@@ -1,7 +1,6 @@
-# Zabbix module Search Page plus
+# Zabbix module: Search Page small improvement
 
-
-A lightweight frontend module for **Zabbix 7.0** designed to improve the User Experience (UX) on the global search results page. This module put "Dashboards" links in the first column and adds a clean, monochromatic icon to highlight the Dashboard link.
+A lightweight frontend module to improve Zabbix search results page. This module put "Dashboards" links in the first column and adds a clean, monochromatic icon to highlight the Dashboard link, to encourage user to explore host dashboards.
 
 <img  alt="screen1126" src="doc/screen.png" />
 
@@ -24,7 +23,7 @@ swap_links/
         └── search_results.js # DOM manipulation logic for search results
 ```
 
-## Monitoring > Host visualization
+## What about "Monitoring > Host" ?
 Altering columns order via module is harder here. If you want to emphasize "Dashboard" link, use the provided patch:
 
 ```text
