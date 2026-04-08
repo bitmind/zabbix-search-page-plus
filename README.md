@@ -20,7 +20,8 @@ A lightweight frontend module to improve Zabbix search results page. This module
 Altering columns order via module is harder here. If you want to emphasize "Dashboard" link, use the provided patch:
 
 ```text
-cd /usr/share/zabbix/app/partials
+cd zabbix/app/partials
+wget https://raw.githubusercontent.com/bitmind/zabbix-search-page-plus/refs/heads/main/patches/monitoring.host.view.html.php.PATCH
 patch monitoring.host.view.html.php < monitoring.host.view.html.php.PATCH
 ```
 
