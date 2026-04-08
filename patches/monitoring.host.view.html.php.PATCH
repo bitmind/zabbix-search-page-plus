@@ -1,5 +1,5 @@
---- monitoring.host.view.html.php	2026-04-03 03:08:05.561377642 +0200
-+++ monitoring.host.view.html.php.patched	2026-04-03 03:17:10.032007597 +0200
+--- monitoring.host.view.html.php	2026-02-11 09:39:09.000000000 +0100
++++ monitoring.host.view.html.php.patched	2026-04-06 09:42:33.403442108 +0200
 @@ -29,13 +29,14 @@
  		make_sorting_header(_('Name'), 'name', $data['sort'], $data['sortorder'], $view_url),
  		(new CColHeader(_('Interface'))),
@@ -15,10 +15,10 @@
 +		(new CColHeader(_('Web'))),
 +		(new CColHeader(_('Tags'))),
 +		make_sorting_header(_('Status'), 'status', $data['sort'], $data['sortorder'], $view_url)
-+		
++
  	])
  	->setPageNavigation($data['paging']);
- 
+
 @@ -108,10 +109,16 @@
  		[$host_name, $maintenance_icon],
  		(new CCol(getHostInterface($interface)))->addClass(ZBX_STYLE_NOWRAP),
@@ -29,14 +29,14 @@
 -			: (new CSpan(_('Disabled')))->addClass(ZBX_STYLE_RED),
 +		$host['dashboards']
 +			? [
-+				new CLink(_('Dashboards'),
++				new CLink(_('🀜 Dashboards'),
 +					(new CUrl('zabbix.php'))
 +						->setArgument('action', 'host.dashboard.view')
 +						->setArgument('hostid', $host['hostid'])
 +				),
 +				CViewHelper::showNum($host['dashboards'])
 +			]
-+			: (new CSpan(_('Dashboards')))->addClass(ZBX_STYLE_DISABLED),
++			: (new CSpan(_('🀆 Dashboards')))->addClass(ZBX_STYLE_DISABLED),
  		[
  			$data['allowed_ui_latest_data']
  				? new CLink(_('Latest data'),
@@ -69,4 +69,3 @@
 +			: (new CSpan(_('Disabled')))->addClass(ZBX_STYLE_RED)
  	]);
  }
- 
